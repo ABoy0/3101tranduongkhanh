@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Product Dashboard</h2>
+
+<input
+  type="text"
+  id="searchInput"
+  placeholder="Search by title..."
+  oninput="searchByTitle()"
+  style="margin-bottom: 15px; padding: 8px; width: 300px;"
+/>
+
+<div style="margin-bottom: 15px;">
+  <button onclick="sortByPriceAsc()">Price ↑</button>
+  <button onclick="sortByPriceDesc()">Price ↓</button>
+  <button onclick="sortByNameAsc()">Name A–Z</button>
+  <button onclick="sortByNameDesc()">Name Z–A</button>
+</div>
+
+
+<div style="margin-bottom: 15px;">
+  <label>Rows per page: </label>
+  <select id="pageSize" onchange="changePageSize()">
+    <option value="5">5</option>
+    <option value="10" selected>10</option>
+    <option value="20">20</option>
+  </select>
+</div>
+
+<div id="pagination" style="margin: 15px 0;"></div>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody id="productBody"></tbody>
+</table>
+
+<script src="dashboard.js"></script>
+</body>
+</html>
